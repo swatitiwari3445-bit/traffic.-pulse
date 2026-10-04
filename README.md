@@ -1,5 +1,4 @@
-# traffic.-pulse
-Smart Traffic Monitoring and Route Recommendation
+
 # TrafficPulse 🚦
 
 TrafficPulse is a smart traffic monitoring and route planning web application.
