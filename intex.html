@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>TrafficPulse</title>
+
+    <!-- Leaflet Map CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    >
+
+    <!-- TrafficPulse CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🚦 TrafficPulse
+    </div>
+
+    <div class="location">
+        📍 Ghaziabad
+    </div>
+
+</header>
+
+
+
+<!-- ================= HOME SCREEN ================= -->
+
+<section id="homeScreen"
+         class="screen active-screen">
+
+    <div class="hero">
+
+        <div class="hero-text">
+
+            <span class="badge">
+                🚦 Smart Traffic Assistant
+            </span>
+
+            <h1>
+                Know Your Road
+                <br>
+                <span>Before You Leave.</span>
+            </h1>
+
+            <p>
+                Check traffic, discover better routes,
+                report road problems and plan your journey.
+            </p>
+
+            <button
+                class="primary-btn"
+                onclick="openTrafficMap()">
+
+                🚦 View Traffic Map
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SEARCH -->
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchBox"
+            placeholder="🔎 Search your location..."
+        >
+
+        <button onclick="searchLocation()">
+            Search
+        </button>
+
+    </div>
+
+
+
+    <!-- TRAFFIC -->
+
+    <h2>Traffic Around You</h2>
+
+    <div class="traffic-grid">
+
+
+        <div class="traffic-card heavy">
+
+            <div class="traffic-icon">
+                🔴
+            </div>
+
+            <div>
+
+                <h3>
+                    ABES Road
+                </h3>
+
+                <p>
+                    Heavy Traffic
+                </p>
+
+                <span>
+                    842 users
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="traffic-card moderate">
+
+            <div class="traffic-icon">
+                🟠
+            </div>
+
+            <div>
+
+                <h3>
+                    NH-9
+                </h3>
+
+                <p>
+                    Moderate Traffic
+                </p>
+
+                <span>
+                    1,205 users
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="traffic-card low">
+
+            <div class="traffic-icon">
+                🟢
+            </div>
+
+            <div>
+
+                <h3>
+                    Crossing Republik
+                </h3>
+
+                <p>
+                    Low Traffic
+                </p>
+
+                <span>
+                    356 users
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUICK ACTIONS -->
+
+    <h2>Quick Actions</h2>
+
+    <div class="quick-grid">
+
+
+        <button onclick="openTrafficMap()">
+
+            🚦
+
+            <strong>
+                Live Traffic
+            </strong>
+
+            <small>
+                Check traffic
+            </small>
+
+        </button>
+
+
+
+        <button onclick="openRouteScreen()">
+
+            🛣️
+
+            <strong>
+                Route Planner
+            </strong>
+
+            <small>
+                Find best route
+            </small>
+
+        </button>
+
+
+
+        <button onclick="openReportScreen()">
+
+            📢
+
+            <strong>
+                Report Traffic
+            </strong>
+
+            <small>
+                Help other users
+            </small>
+
+        </button>
+
+
+
+        <button onclick="openPredictionScreen()">
+
+            📊
+
+            <strong>
+                Prediction
+            </strong>
+
+            <small>
+                Future traffic
+            </small>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= TRAFFIC SCREEN ================= -->
+
+<section id="trafficScreen"
+         class="screen">
+
+    <div class="page-container">
+
+        <button
+            class="back-btn"
+            onclick="goHome()">
+
+            ← Back
+
+        </button>
+
+
+        <h1>
+            Live Traffic
+        </h1>
+
+        <p class="subtitle">
+            TrafficPulse traffic visualization
+        </p>
+
+
+        <!-- MAP -->
+
+        <div id="trafficMap"></div>
+
+
+        <!-- LEGEND -->
+
+        <div class="map-legend">
+
+            <div>
+                <span class="legend-dot red"></span>
+                Heavy
+            </div>
+
+            <div>
+                <span class="legend-dot orange"></span>
+                Moderate
+            </div>
+
+            <div>
+                <span class="legend-dot green"></span>
+                Low
+            </div>
+
+        </div>
+
+
+        <h2>
+            Traffic Status
+        </h2>
+
+
+        <div class="traffic-grid">
+
+            <div class="traffic-card heavy">
+
+                <div class="traffic-icon">
+                    🔴
+                </div>
+
+                <div>
+
+                    <h3>
+                        ABES Road
+                    </h3>
+
+                    <p>
+                        Heavy Traffic
+                    </p>
+
+                    <span>
+                        842 users
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="traffic-card moderate">
+
+                <div class="traffic-icon">
+                    🟠
+                </div>
+
+                <div>
+
+                    <h3>
+                        NH-9
+                    </h3>
+
+                    <p>
+                        Moderate Traffic
+                    </p>
+
+                    <span>
+                        1,205 users
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="traffic-card low">
+
+                <div class="traffic-icon">
+                    🟢
+                </div>
+
+                <div>
+
+                    <h3>
+                        Crossing Republik
+                    </h3>
+
+                    <p>
+                        Low Traffic
+                    </p>
+
+                    <span>
+                        356 users
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ROUTE SCREEN ================= -->
+
+<section id="routeScreen"
+         class="screen">
+
+    <div class="page-container">
+
+        <button
+            class="back-btn"
+            onclick="goHome()">
+
+            ← Back
+
+        </button>
+
+
+        <h1>
+            Route Planner 🛣️
+        </h1>
+
+        <p class="subtitle">
+            Find the best route for your journey.
+        </p>
+
+
+        <div class="route-box">
+
+            <label>
+                Starting Point
+            </label>
+
+            <input
+                id="fromLocation"
+                type="text"
+                placeholder="Enter starting location"
+            >
+
+
+            <label>
+                Destination
+            </label>
+
+            <input
+                id="toLocation"
+                type="text"
+                placeholder="Enter destination"
+            >
+
+
+            <button
+                class="primary-btn"
+                onclick="calculateRoute()">
+
+                🔎 Find Best Route
+
+            </button>
+
+        </div>
+
+
+        <div id="routeResult"
+             class="route-result">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= REPORT SCREEN ================= -->
+
+<section id="reportScreen"
+         class="screen">
+
+    <div class="page-container">
+
+        <button
+            class="back-btn"
+            onclick="goHome()">
+
+            ← Back
+
+        </button>
+
+
+        <h1>
+            Community Reports 📢
+        </h1>
+
+        <p class="subtitle">
+            Report traffic problems and help other drivers.
+        </p>
+
+
+        <div class="report-box">
+
+            <label>
+                Location
+            </label>
+
+            <input
+                id="reportLocation"
+                type="text"
+                placeholder="Enter location"
+            >
+
+
+            <label>
+                Problem
+            </label>
+
+            <select id="reportType">
+
+                <option>
+                    Heavy Traffic
+                </option>
+
+                <option>
+                    Accident
+                </option>
+
+                <option>
+                    Road Blockage
+                </option>
+
+                <option>
+                    Construction
+                </option>
+
+                <option>
+                    Waterlogging
+                </option>
+
+            </select>
+
+
+            <label>
+                Description
+            </label>
+
+            <textarea
+                id="reportText"
+                placeholder="Describe the traffic problem..."
+            ></textarea>
+
+
+            <button
+                class="primary-btn"
+                onclick="submitReport()">
+
+                📢 Submit Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PREDICTION SCREEN ================= -->
+
+<section id="predictionScreen"
+         class="screen">
+
+    <div class="page-container">
+
+        <button
+            class="back-btn"
+            onclick="goHome()">
+
+            ← Back
+
+        </button>
+
+
+        <h1>
+            Traffic Prediction 📊
+        </h1>
+
+        <p class="subtitle">
+            Estimated traffic conditions.
+        </p>
+
+
+        <div class="prediction-grid">
+
+
+            <div class="prediction-card">
+
+                <h3>
+                    9:00 AM
+                </h3>
+
+                <div class="prediction-status heavy-text">
+                    🔴 Heavy
+                </div>
+
+                <p>
+                    High traffic expected
+                </p>
+
+            </div>
+
+
+
+            <div class="prediction-card">
+
+                <h3>
+                    1:00 PM
+                </h3>
+
+                <div class="prediction-status moderate-text">
+                    🟠 Moderate
+                </div>
+
+                <p>
+                    Normal traffic expected
+                </p>
+
+            </div>
+
+
+
+            <div class="prediction-card">
+
+                <h3>
+                    6:00 PM
+                </h3>
+
+                <div class="prediction-status heavy-text">
+                    🔴 Heavy
+                </div>
+
+                <p>
+                    Evening rush expected
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PROFILE SCREEN ================= -->
+
+<section id="profileScreen"
+         class="screen">
+
+    <div class="page-container">
+
+        <button
+            class="back-btn"
+            onclick="goHome()">
+
+            ← Back
+
+        </button>
+
+
+        <div class="profile-card">
+
+            <div class="profile-icon">
+                👤
+            </div>
+
+            <h1>
+                TrafficPulse User
+            </h1>
+
+            <p>
+                Smart traveller
+            </p>
+
+
+            <div class="profile-stats">
+
+                <div>
+                    <strong>
+                        12
+                    </strong>
+
+                    <span>
+                        Reports
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        8
+                    </strong>
+
+                    <span>
+                        Routes
+                    </span>
+                </div>
+
+
+                <div>
+                    <strong>
+                        24
+                    </strong>
+
+                    <span>
+                        Searches
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav">
+
+
+    <button onclick="goHome()">
+
+        <span class="nav-icon">
+            🏠
+        </span>
+
+        <span>
+            Home
+        </span>
+
+    </button>
+
+
+
+    <button onclick="openTrafficMap()">
+
+        <span class="nav-icon">
+            🚦
+        </span>
+
+        <span>
+            Traffic
+        </span>
+
+    </button>
+
+
+
+    <button onclick="openRouteScreen()">
+
+        <span class="nav-icon">
+            🛣️
+        </span>
+
+        <span>
+            Routes
+        </span>
+
+    </button>
+
+
+
+    <button onclick="openReportScreen()">
+
+        <span class="nav-icon">
+            📢
+        </span>
+
+        <span>
+            Reports
+        </span>
+
+    </button>
+
+
+
+    <button onclick="openProfileScreen()">
+
+        <span class="nav-icon">
+            👤
+        </span>
+
+        <span>
+            Profile
+        </span>
+
+    </button>
+
+
+</nav>
+
+
+
+<!-- ================= LEAFLET ================= -->
+
+<script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+
+<!-- ================= OUR JAVASCRIPT ================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

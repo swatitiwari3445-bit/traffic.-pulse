@@ -1,0 +1,1047 @@
+/* =====================================
+   TRAFFICPULSE CSS
+===================================== */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f4f7fb;
+
+    color: #222;
+
+    padding-bottom: 85px;
+
+}
+
+
+/* =====================================
+   HEADER
+===================================== */
+
+header {
+
+    height: 70px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 7%;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,0.08);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 999;
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #1976d2;
+
+}
+
+
+.location {
+
+    color: #555;
+
+    font-size: 14px;
+
+}
+
+
+/* =====================================
+   SCREENS
+===================================== */
+
+.screen {
+
+    display: none;
+
+}
+
+
+.active-screen {
+
+    display: block;
+
+}
+
+
+/* =====================================
+   HERO
+===================================== */
+
+.hero {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 30px auto;
+
+    min-height: 360px;
+
+    padding: 55px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff3ff,
+            #ffffff
+        );
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+
+}
+
+
+.badge {
+
+    display: inline-block;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #1976d2;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero h1 {
+
+    font-size: 48px;
+
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero h1 span {
+
+    color: #1976d2;
+
+}
+
+
+.hero p {
+
+    max-width: 650px;
+
+    color: #666;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =====================================
+   BUTTON
+===================================== */
+
+.primary-btn {
+
+    border: none;
+
+    background: #1976d2;
+
+    color: white;
+
+    padding: 14px 23px;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.primary-btn:hover {
+
+    background: #125aa0;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =====================================
+   SEARCH
+===================================== */
+
+.search-box {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 0 auto 30px;
+
+    background: white;
+
+    padding: 12px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    gap: 10px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.07);
+
+}
+
+
+.search-box input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    padding: 12px;
+
+    font-size: 15px;
+
+}
+
+
+.search-box button {
+
+    border: none;
+
+    background: #1976d2;
+
+    color: white;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+}
+
+
+/* =====================================
+   HEADINGS
+===================================== */
+
+h2 {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 30px auto 15px;
+
+}
+
+
+/* =====================================
+   TRAFFIC GRID
+===================================== */
+
+.traffic-grid {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.traffic-card {
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.07);
+
+    border-left: 6px solid;
+
+}
+
+
+.traffic-icon {
+
+    font-size: 30px;
+
+}
+
+
+.traffic-card h3 {
+
+    margin-bottom: 7px;
+
+}
+
+
+.traffic-card p {
+
+    color: #666;
+
+    margin-bottom: 7px;
+
+}
+
+
+.traffic-card span {
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.heavy {
+
+    border-color: #e53935;
+
+}
+
+
+.moderate {
+
+    border-color: #fb8c00;
+
+}
+
+
+.low {
+
+    border-color: #43a047;
+
+}
+
+
+/* =====================================
+   QUICK ACTIONS
+===================================== */
+
+.quick-grid {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 18px;
+
+}
+
+
+.quick-grid button {
+
+    background: white;
+
+    border: none;
+
+    padding: 25px 15px;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.07);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    align-items: center;
+
+    transition: 0.2s;
+
+}
+
+
+.quick-grid button:hover {
+
+    transform: translateY(-4px);
+
+}
+
+
+.quick-grid button:first-child {
+
+    font-size: 30px;
+
+}
+
+
+.quick-grid strong {
+
+    font-size: 15px;
+
+}
+
+
+.quick-grid small {
+
+    color: #777;
+
+}
+
+
+/* =====================================
+   PAGE
+===================================== */
+
+.page-container {
+
+    width: 86%;
+
+    max-width: 1150px;
+
+    margin: 30px auto;
+
+}
+
+
+.page-container h1 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.subtitle {
+
+    color: #777;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================
+   BACK BUTTON
+===================================== */
+
+.back-btn {
+
+    border: none;
+
+    background: white;
+
+    padding: 10px 17px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 3px 10px rgba(0,0,0,0.06);
+
+}
+
+
+/* =====================================
+   MAP
+===================================== */
+
+#trafficMap {
+
+    width: 100%;
+
+    height: 450px;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.12);
+
+    margin: 20px 0;
+
+}
+
+
+/* =====================================
+   LEGEND
+===================================== */
+
+.map-legend {
+
+    background: white;
+
+    padding: 16px 20px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    gap: 28px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.07);
+
+}
+
+
+.map-legend div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+}
+
+
+.legend-dot {
+
+    width: 13px;
+
+    height: 13px;
+
+    border-radius: 50%;
+
+}
+
+
+.legend-dot.red {
+
+    background: #e53935;
+
+}
+
+
+.legend-dot.orange {
+
+    background: #fb8c00;
+
+}
+
+
+.legend-dot.green {
+
+    background: #43a047;
+
+}
+
+
+/* =====================================
+   ROUTE
+===================================== */
+
+.route-box,
+.report-box {
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.07);
+
+    max-width: 700px;
+
+}
+
+
+.route-box label,
+.report-box label {
+
+    display: block;
+
+    font-weight: bold;
+
+    margin: 15px 0 7px;
+
+}
+
+
+.route-box input,
+.report-box input,
+.report-box select,
+.report-box textarea {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 14px;
+
+}
+
+
+.report-box textarea {
+
+    height: 130px;
+
+    resize: vertical;
+
+}
+
+
+.route-box .primary-btn,
+.report-box .primary-btn {
+
+    margin-top: 20px;
+
+}
+
+
+.route-result {
+
+    margin-top: 20px;
+
+}
+
+
+/* =====================================
+   PREDICTION
+===================================== */
+
+.prediction-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 20px;
+
+}
+
+
+.prediction-card {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,0.07);
+
+}
+
+
+.prediction-card h3 {
+
+    margin-bottom: 15px;
+
+}
+
+
+.prediction-status {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+
+}
+
+
+.heavy-text {
+
+    color: #e53935;
+
+}
+
+
+.moderate-text {
+
+    color: #fb8c00;
+
+}
+
+
+.prediction-card p {
+
+    color: #777;
+
+}
+
+
+/* =====================================
+   PROFILE
+===================================== */
+
+.profile-card {
+
+    background: white;
+
+    max-width: 600px;
+
+    margin: 50px auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 7px 25px rgba(0,0,0,0.08);
+
+}
+
+
+.profile-icon {
+
+    font-size: 60px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.profile-card p {
+
+    color: #777;
+
+    margin: 8px 0 30px;
+
+}
+
+
+.profile-stats {
+
+    display: flex;
+
+    justify-content: space-around;
+
+}
+
+
+.profile-stats div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+.profile-stats strong {
+
+    font-size: 24px;
+
+    color: #1976d2;
+
+}
+
+
+.profile-stats span {
+
+    font-size: 12px;
+
+    color: #777;
+
+}
+
+
+/* =====================================
+   BOTTOM NAV
+===================================== */
+
+.bottom-nav {
+
+    position: fixed;
+
+    bottom: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 75px;
+
+    background: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 45px;
+
+    box-shadow:
+        0 -4px 18px rgba(0,0,0,0.09);
+
+    z-index: 1000;
+
+}
+
+
+.bottom-nav button {
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    color: #444;
+
+}
+
+
+.nav-icon {
+
+    font-size: 20px;
+
+}
+
+
+.bottom-nav button span:last-child {
+
+    font-size: 12px;
+
+}
+
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 800px) {
+
+
+    .hero {
+
+        width: 92%;
+
+        padding: 35px 25px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 34px;
+
+    }
+
+
+    .search-box {
+
+        width: 92%;
+
+    }
+
+
+    .traffic-grid {
+
+        width: 92%;
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .quick-grid {
+
+        width: 92%;
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+
+    h2 {
+
+        width: 92%;
+
+    }
+
+
+    .page-container {
+
+        width: 92%;
+
+    }
+
+
+    #trafficMap {
+
+        height: 350px;
+
+    }
+
+
+    .prediction-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .bottom-nav {
+
+        gap: 18px;
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+
+    header {
+
+        padding: 0 5%;
+
+    }
+
+
+    .logo {
+
+        font-size: 19px;
+
+    }
+
+
+    .location {
+
+        font-size: 12px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 29px;
+
+    }
+
+
+    .quick-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .bottom-nav {
+
+        gap: 12px;
+
+    }
+
+}
